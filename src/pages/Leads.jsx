@@ -281,7 +281,34 @@ export default function AdminLeads() {
                       <td><span className={`${styles.statusTag} ${getStatusClass(lead.statusName)}`}>{lead.statusName}</span></td>
                       <td>{lead.nameCreatedBy}</td>
                       <td>{new Date(lead.createdAt).toLocaleString()}</td>
-                      <td><button onClick={() => navigate(`/leads/view/${lead.leadId}`, { state: { record: lead } })}>View</button></td>
+                      <td><button
+                        onClick={() => navigate(`/leads/view/${lead.leadId}`, { state: { record: lead } })}
+                        style={{
+                          padding: '8px 16px',
+                          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                          color: '#fff',
+                          border: 'none',
+                          borderRadius: '8px',
+                          fontSize: '14px',
+                          fontWeight: 600,
+                          cursor: 'pointer',
+                          boxShadow: '0 4px 12px rgba(102, 126, 234, 0.4)',
+                          transition: 'all 0.3s ease',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.5px',
+                          display: 'inline-block',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.transform = 'translateY(-2px)';
+                          e.currentTarget.style.boxShadow = '0 6px 20px rgba(102, 126, 234, 0.6)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.transform = 'translateY(0)';
+                          e.currentTarget.style.boxShadow = '0 4px 12px rgba(102, 126, 234, 0.4)';
+                        }}
+                      >
+                        View
+                      </button></td>
                     </tr>
                   ))}
                 </tbody>
