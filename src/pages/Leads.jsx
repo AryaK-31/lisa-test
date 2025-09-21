@@ -2,12 +2,10 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./UserLeads.module.css";
 
-// 📦 extra imports for export features
 import * as XLSX from "xlsx";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 
-// Dummy data
 const dummyLeads = Array.from({ length: 50 }, (_, i) => ({
   leadId: i + 1,
   firstName: `John${i + 1}`,
@@ -42,11 +40,9 @@ export default function AdminLeads() {
   const [statuses, setStatuses] = useState(dummyStatuses);
   const [loading, setLoading] = useState(true);
 
-  // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const [entriesPerPage, setEntriesPerPage] = useState(10);
 
-  // filters
   const [selectedLawsuit, setSelectedLawsuit] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("");
   const [fromDate, setFromDate] = useState("");
@@ -54,21 +50,19 @@ export default function AdminLeads() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selected, setSelected] = useState([]);
 
-  // history popup
   const [showHistory, setShowHistory] = useState(false);
   const [historyData, setHistoryData] = useState([]);
   const [historyLoading, setHistoryLoading] = useState(false);
 
   const navigate = useNavigate();
 
-  // Load dummy data on mount
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
       setAllLeads(dummyLeads);
       setLeads(dummyLeads);
       setLoading(false);
-    }, 500); // simulate loading
+    }, 500);
   }, []);
 
   const getStatusClass = (status) => {
@@ -82,7 +76,7 @@ export default function AdminLeads() {
     }
   };
 
-  // Apply filters
+
   const handleApplyFilters = () => {
     let filtered = [...allLeads];
     if (selectedLawsuit) filtered = filtered.filter(l => l.lawsuitName === selectedLawsuit);
@@ -93,7 +87,7 @@ export default function AdminLeads() {
     setCurrentPage(1);
   };
 
-  // Clear filters
+
   const handleClearFilters = () => {
     setSelectedLawsuit("");
     setSelectedStatus("");
@@ -103,7 +97,7 @@ export default function AdminLeads() {
     setCurrentPage(1);
   };
 
-  // Search
+
   useEffect(() => {
     if (!searchQuery) {
       setLeads(allLeads);
@@ -122,7 +116,7 @@ export default function AdminLeads() {
     setCurrentPage(1);
   }, [searchQuery, allLeads]);
 
-  // Pagination
+
   const totalEntries = leads.length;
   const totalPages = Math.ceil(totalEntries / entriesPerPage);
   const startIndex = (currentPage - 1) * entriesPerPage;
@@ -134,7 +128,7 @@ export default function AdminLeads() {
     setCurrentPage(page);
   };
 
-  // Export
+
   const headers = ["First Name", "Last Name", "Phone", "DOB", "Email", "Lawsuit", "Status", "Created By", "Created At"];
   const rows = leads.map(l => [
     l.firstName, l.lastName, l.phone, l.dob, l.email, l.lawsuitName, l.statusName, l.nameCreatedBy, l.createdAt
@@ -180,7 +174,6 @@ export default function AdminLeads() {
     printWindow.print();
   };
 
-  // Selection
   const allSelected = selected.length === leads.length && leads.length > 0;
   const handleSelectAll = () => setSelected(leads.map(l => l.leadId));
   const handleDeselectAll = () => setSelected([]);
@@ -200,25 +193,37 @@ export default function AdminLeads() {
 
       {!showSelect && (
         <>
-          {/* Filters */}
-          <div className={styles.filtersRow}>
-            <select value={selectedLawsuit} onChange={e => setSelectedLawsuit(e.target.value)} className={styles.filterSelect}>
-              <option value="">Select Lawsuit</option>
-              {lawsuits.map(ls => <option key={ls.id} value={ls.lawsuitName}>{ls.lawsuitName}</option>)}
-            </select>
-            <select value={selectedStatus} onChange={e => setSelectedStatus(e.target.value)} className={styles.filterSelect}>
-              <option value="">Select Status</option>
-              {statuses.map(st => <option key={st.id} value={st.statusName}>{st.statusName}</option>)}
-            </select>
-          </div>
+          <div className={styles.filterAndApply}>
+            {/* Filters */}
+            <div className={styles.filtersRow}>
+              <div>
+                <p>Lawsuit Type</p>
+              </div>
+              <div>
+                <select value={selectedLawsuit} onChange={e => setSelectedLawsuit(e.target.value)} className={styles.filterSelect}>
+                  <option value="">Select Lawsuit</option>
+                  {lawsuits.map(ls => <option key={ls.id} value={ls.lawsuitName}>{ls.lawsuitName}</option>)}
+                </select>
+                <select value={selectedStatus} onChange={e => setSelectedStatus(e.target.value)} className={styles.filterSelect}>
+                  <option value="">Select Status</option>
+                  {statuses.map(st => <option key={st.id} value={st.statusName}>{st.statusName}</option>)}
+                </select>
+              </div>
+            </div>
 
-          {/* Date & Apply */}
-          <div className={styles.dateRow}>
-            <input type="date" value={fromDate} onChange={e => setFromDate(e.target.value)} className={styles.dateRange} />
-            <span> to </span>
-            <input type="date" value={toDate} onChange={e => setToDate(e.target.value)} className={styles.dateRange} />
-            <button className={styles.applyBtn} onClick={handleApplyFilters}>Apply</button>
-            <button className={styles.clearBtn} onClick={handleClearFilters}>Clear</button>
+            {/* Date & Apply */}
+            <div className={styles.dateRow}>
+              <p>Date and Apply</p>
+              <div className={styles.dateRowSelect}>
+                <input type="date" value={fromDate} onChange={e => setFromDate(e.target.value)} className={styles.dateRange} />
+                <span> to </span>
+                <input type="date" value={toDate} onChange={e => setToDate(e.target.value)} className={styles.dateRange} />
+              </div>
+              <div className={styles.dateRowBtn}>
+                <button className={styles.applyBtn} onClick={handleApplyFilters}>Apply</button>
+                <button className={styles.clearBtn} onClick={handleClearFilters}>Clear</button>
+              </div>
+            </div>
           </div>
 
           {/* Export + Search */}
