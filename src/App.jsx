@@ -53,7 +53,6 @@ export default function App() {
 
         {/* Forms (accessible to everyone) */}
         <Route path="leads/depo-provera" element={<DepoProveraForm />} />
-        <Route path="leads/depo_provera" element={<DepoProveraForm />} />
         <Route path="leads/roundup" element={<RoundupForm />} />
         <Route path="leads/pfas" element={<PFASForm />} />
         <Route path="leads/nec" element={<NECForm />} />

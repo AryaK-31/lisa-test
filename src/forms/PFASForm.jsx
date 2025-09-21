@@ -126,13 +126,15 @@ export default function PFASForm() {
           </div>
 
           <div className={styles.formGroup}>
-            <label>Phone *</label>
+            <label>
+              Phone <span className="required">*</span>
+            </label>
             <PhoneInput
               country={"us"}
               value={formData.phone}
               onChange={handlePhoneChange}
-              containerClass={styles.phoneInput}
-              inputStyle={{ width: "100%" }}
+              inputClass={styles.phoneInput}
+              required
             />
           </div>
         </div>
@@ -187,20 +189,23 @@ export default function PFASForm() {
         <div className={`${styles.formGroup} ${styles.full}`}>
           <label>Diagnosis</label>
           <div className={styles.checkboxGrid}>
-            {["Kidney Cancer", "Testicular Cancer", "Ulcerative Colitis", "Liver Cancer"].map(
-              (condition) => (
-                <label key={condition}>
-                  <input
-                    type="checkbox"
-                    name="diagnosis"
-                    value={condition}
-                    checked={formData.diagnosis.includes(condition)}
-                    onChange={handleChange}
-                  />
-                  {condition}
-                </label>
-              )
-            )}
+            {[
+              "Kidney Cancer",
+              "Testicular Cancer",
+              "Ulcerative Colitis",
+              "Liver Cancer",
+            ].map((condition) => (
+              <label key={condition}>
+                <input
+                  type="checkbox"
+                  name="diagnosis"
+                  value={condition}
+                  checked={formData.diagnosis.includes(condition)}
+                  onChange={handleChange}
+                />
+                {condition}
+              </label>
+            ))}
           </div>
         </div>
 

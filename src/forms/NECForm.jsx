@@ -153,8 +153,8 @@ export default function NECForm() {
               country={"us"}
               value={formData.phone}
               onChange={handlePhoneChange}
-              containerClass={styles.phoneInput}
               inputClass={styles.phoneInput}
+              required
             />
           </div>
         </div>
