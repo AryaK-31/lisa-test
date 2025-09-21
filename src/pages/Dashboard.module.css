@@ -1,0 +1,285 @@
+.dashboard {
+  font-family: 'Inter', 'Roboto', sans-serif;
+  background: #f5f7fa;
+  min-height: 100vh;
+}
+
+.welcomeDiv{
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 18%;
+  background-color: rgb(243, 243, 243);
+  box-shadow: inset 0 -0.1px 0 0 black;
+  padding: 1rem 2rem;
+}
+
+.welcome {
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+.heading {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1e1e2f;
+}
+
+/* --- Cards Grid --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  padding : 1.5rem;
+}
+
+/* ✅ Card style */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  padding: 20px 10px;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  min-height: 100px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Logical background colors --- */
+.card[data-status='TOTAL'] {
+  background: #e3f2fd;
+}
+
+.card[data-status='PENDING'] {
+  background: #fffde7;
+}
+
+.card[data-status='REJECTED'] {
+  background: #ffebee;
+}
+
+.card[data-status='BILLABLE'] {
+  background: #e8f5e9;
+}
+
+.card[data-status='PAID'] {
+  background: #e0f7fa;
+}
+
+.card[data-status='VERIFIED'] {
+  background: #e3f2fd;
+}
+
+/* --- Card content --- */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.value {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #1e1e2f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #000000;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+.statusBadge {
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 4px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+
+.checkmark {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(0, 0, 0);
+  border-radius: 6px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+/* --- Filter Section --- */
+.filterSection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+.dateDropdownBtn {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  color: #1e1e2f;
+  transition: all 0.2s ease;
+}
+
+.dateDropdownBtn:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.applyBtn {
+  background: #007bff;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.applyBtn:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+.clearBtn {
+  background: #dc3545;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.clearBtn:hover {
+  background: #a71d2a;
+  transform: translateY(-2px);
+}
+
+/* --- Chart Section --- */
+.chartSection {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 25px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .card {
+    padding: 0;
+    min-height: 100px;
+  }
+
+  .value {
+    font-size: 2rem;
+  }
+
+  .label {
+    font-size: 0.8rem;
+  }
+
+  .checkmark {
+    width: 26px;
+    height: 26px;
+  }
+
+  .filterSection {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .applyBtn,
+  .clearBtn {
+    width: 48%;
+  }
+}
+
+@media (max-width: 480px) {
+  
+
+  .card {
+    padding: 2rem 1.5rem;
+  }
+
+  .dashboard {
+    padding: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .applyBtn,
+  .clearBtn {
+    width: 100%;
+  }
+
+  .value {
+    font-size: 2.4rem;
+  }
+
+  .label {
+    font-size: 1rem;
+  }
+
+  .checkmark {
+    width: 22px;
+    height: 22px;
+  }
+
+  .welcome {
+    font-size: 1.4rem;
+  }
+
+  .heading {
+    font-size: 1.8rem;
+  }
+}

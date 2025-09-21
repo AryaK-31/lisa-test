@@ -1,0 +1,76 @@
+/* Layout.css */
+
+/* Layout */
+.layout {
+  display: flex;
+  height: 100vh;         /* पूर्ण viewport height */
+  overflow: hidden;      /* double scroll येऊ नये म्हणून */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #1e40af;
+  color: #f1e7e7;
+  padding: 20px;
+  height: 100vh;         /* sidebar full height */
+  overflow-y: auto;      /* जर लांब असेल तर scroll */
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 12px 0;
+}
+
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.sidebar a:hover {
+  background: #2563eb;
+}
+
+/* Main content */
+.content {
+  flex: 1;
+  height: 100vh;
+  overflow-y: auto;      /* फक्त content scroll */
+  /* padding: 30px; */
+
+  display: flex;         /* center करण्यासाठी */
+  justify-content: center; /* horizontal center */
+  align-items: flex-start; /* top पासून सुरुवात */
+  background: #f5f6fa;
+
+}
+
+/* Forms / Inner Pages */
+.form-wrapper {
+  width: 100%;
+  max-width: 800px;      /* content ला मर्यादित width */
+  margin-top: 40px;      /* थोडं space वरून */
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .content{
+    margin-top: 10vh;
+  }
+}

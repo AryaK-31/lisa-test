@@ -1,0 +1,121 @@
+.leads-page {
+  padding: 15px;
+  background: #f2f3f5;
+}
+
+/* Header */
+.top-header {
+  margin-bottom: 10px;
+}
+.add-btn {
+  background: #28a745;
+  color: white;
+  padding: 7px 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Filters */
+.filters-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 8px;
+}
+.filter-select {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Date row */
+.date-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.date-range {
+  flex: 1;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.apply-btn {
+  background: #28a745;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+}
+.clear-btn {
+  background: #dc3545;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+}
+
+/* Export row */
+.export-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.export-buttons button,
+.export-buttons select {
+  margin-right: 6px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background: #f1f1f1;
+  cursor: pointer;
+}
+.btn-blue { background: #007bff; color: white; }
+.btn-purple { background: #6f42c1; color: white; }
+
+.search-box input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Table */
+.leads-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+.leads-table th,
+.leads-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+/* Status labels */
+.status-tag {
+  padding: 3px 7px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+.status-blue { background: #007bff; }
+.status-red { background: #dc3545; }
+.status-green { background: #28a745; }
+.status-yellow { background: #ffc107; color: black; }
+.status-darkred { background: #a30000; }
+.status-orange { background: #fd7e14; }
+.status-darkgreen { background: #006400; }
+
+/* Action buttons */
+.view-btn, .history-btn {
+  padding: 3px 7px;
+  border: none;
+  border-radius: 3px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.view-btn { background: #007bff; color: white; }
+.history-btn { background: #28a745; color: white; }

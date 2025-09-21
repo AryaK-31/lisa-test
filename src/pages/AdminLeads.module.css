@@ -1,0 +1,348 @@
+.leads-page {
+  padding: 20px;
+  min-width: auto;
+  background: #f8f9fa;
+  font-family: Arial, sans-serif;
+}
+ 
+.top-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+ 
+.add-btn {
+  background-color:#9370DB;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+ 
+.add-btn:hover {
+  background-color: #7B5FCB;
+}
+ 
+.filters-row,
+.date-row,
+.export-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  align-items: center;
+}
+ 
+.filter-select,
+.date-range {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+ 
+.apply-btn,
+.clear-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+ 
+.apply-btn {
+  background-color: #28a745;
+  color: white;
+}
+ 
+.clear-btn {
+  background-color: #dc3545;
+  color: white;
+}
+ 
+.export-buttons button {
+  padding: 6px 12px;
+  border: none;
+  background:  #9370DB;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+ 
+.export-buttons button:hover {
+  background: #7B5FCB;
+}
+ 
+.search-box input {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+ 
+.leads-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+ 
+.leads-table th,
+.leads-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+ 
+.leads-table th {
+  background-color: #f1f1f1;
+}
+ 
+/* Status pills */
+.status-tag {
+  padding: 4px 5px;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+}
+ 
+.status-blue { background-color: #007bff; }
+.status-red { background-color: #dc3545; }
+.status-green { background-color: #28a745; }
+.status-yellow { background-color: #ffc107; color: black; }
+.status-darkgreen { background-color: #006400; }
+.status-orange { background-color: #fd7e14; }
+.status-default { background-color: #6c757d; }
+ 
+/* Buttons */
+.view-btn,
+.history-btn,
+.edit-btn,
+.save-btn {
+  margin: 0;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+ 
+.view-btn { background-color: #007bff; color: white; }
+.history-btn { background-color: #ffc107; color: black; }
+.edit-btn { background-color: #28a745; color: white; }
+.save-btn { background-color: #17a2b8; color: white; }
+ 
+/* Pagination */
+.pagination-footer {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+ 
+.pagination-controls button {
+  margin: 0 3px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+ 
+.pagination-controls button.active {
+  background: #007bff;
+  color: white;
+}
+ 
+/* ✅ New: keep action buttons in a single row */
+.actions-col { width: 340px; }      /* header width; adjust as needed */
+ 
+.actions-cell {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;          /* or flex-start */
+  white-space: nowrap;              /* prevent wrapping */
+  padding: 8px 10px;                /* slight tighten */
+}
+ 
+ 
+ 
+/* ========================= */
+/* Popup / Modal CSS */
+/* ========================= */
+ 
+ 
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;   /* ✅ top ला आणतो */
+  padding-top: 60px;         /* थोडं gap वरून */
+  z-index: 999;
+}
+ 
+.modal {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 80%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  animation: fadeInScale 0.3s ease-in-out;
+}
+ 
+ 
+.modal h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+  text-align: center;
+  color: #333;
+}
+ 
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+ 
+.history-table th,
+.history-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+ 
+.history-table th {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+ 
+.close-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  float: right;
+}
+ 
+.close-btn:hover {
+  background-color: #c82333;
+}
+ 
+/* Popup animation */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.PENDING {
+  background-color: #fff7a3; /* soft yellow */
+}
+
+.ATTEMPT_1_VM,
+.ATTEMPT_2_VM,
+.ATTEMPT_3_VM,
+.ATTEMPT_4_VM,
+.ATTEMPT_5_VM {
+  background-color: #cce7ff; /* very light blue */
+}
+
+.BACKGROUND_CHECK {
+  background-color: #ffd8a8; /* peach */
+}
+
+.BACK_TO_SOURCE_NO_ANSWER,
+.CALL_BACK,
+.CALL_BACK_REQUEST {
+  background-color: #d5ffcc; /* light coral pink */
+}
+
+.BILLABLE {
+  background-color: #d3f9d8; /* pastel green */
+}
+
+.CAMPAIGN_PAUSED {
+  background-color: #e0e0e0; /* light gray */
+}
+
+.CHARGEBACK {
+  background-color: #ffb3b3; /* light red */
+  color: #333;
+}
+
+.DEAD_LEAD,
+.DUPLICATE,
+.DUPLICATE_WITH_CLIENT {
+  background-color: #f5b7b1; /* soft rose */
+  color: #333;
+}
+
+.FELONY,
+.ID_VERIFICATION_FAILED,
+.NOT_ACCEPTABLE_ZIP {
+  background-color: #d6d6d6; /* neutral gray */
+  color: #333;
+}
+
+.NOT_RESPONDING_TO_CLIENT {
+  background-color: #ffe0f0; /* soft pink */
+}
+
+.PAID {
+  background-color: #bdfcc9; /* mint green */
+}
+
+.REACHED_DAILY_CAP {
+  background-color: #e5ccff; /* lavender */
+}
+
+.READY_TF {
+  background-color: #b2f0f0; /* light teal */
+}
+
+.REJECTED,
+.REJECTED_BY_CLIENT {
+  background-color: #f5a3a3; /* light crimson */
+  color: #333;
+}
+
+.SENT_TO_CLIENT,
+.SENT_TO_OTHER_BUYER {
+  background-color: #a3d8ff; /* sky blue */
+}
+
+.SIGNED_UNDER_QC {
+  background-color: #c8f7c5; /* soft green */
+}
+
+.SUB_UNSUCCESSFUL_CPQ,
+.SUB_UNSUCCESSFUL_LL {
+  background-color: #f7d6bf; /* tan */
+}
+
+.TPCA_LINK_MISSING {
+  background-color: #ffd6a5; /* pastel orange */
+}
+
+.VERIFIED {
+  background-color: #caffbf; 
+}
+
+.WAITING_ON_ID {
+  background-color: #fff6a5; 
+}
+
+.WORKING {
+  background-color: #a0f0e8; 
+}

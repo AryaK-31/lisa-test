@@ -1,0 +1,189 @@
+/* .form-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.form-table th {
+  text-align: left;
+  padding: 12px 15px;
+  background: #f4f6f9;
+  font-weight: 600;
+  color: #444;
+  width: 40%;
+  border-bottom: 1px solid #ddd;
+}
+
+.form-table td {
+  padding: 12px 15px;
+  color: #222;
+  border-bottom: 1px solid #eee;
+}
+
+.form-table tr:nth-child(even) td {
+  background: #fafafa;
+}
+
+.back-btn {
+  margin-top: 20px;
+  display: block;
+  padding: 10px 18px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #0056b3;
+} */
+
+/* .formContainer {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.formTitle {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.formTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.formTable th {
+  text-align: left;
+  padding: 12px 15px;
+  background: #f4f6f9;
+  font-weight: 600;
+  color: #444;
+  width: 40%;
+  border-bottom: 1px solid #ddd;
+}
+
+.formTable td {
+  padding: 12px 15px;
+  color: #222;
+  border-bottom: 1px solid #eee;
+}
+
+.formTable tr:nth-child(even) td {
+  background: #fafafa;
+}
+
+.backBtn {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 10px 18px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.3s ease;
+}
+
+.backBtn:hover {
+  background: #0056b3;
+}
+ */
+
+
+ .formContainer {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e0e0e0;
+}
+
+.formTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color:#4B0082; 
+}
+
+.formTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+/* Header column (labels) */
+/* Data column (values) */
+.formTable td {
+  padding: 16px 14px;   /* increased from 10px → 16px */
+  color:  #1C1C1C; 
+  border: 1px solid #ddd;
+  font-size: 15px;      /* optional: slightly bigger text */
+}
+
+/* Header column (labels) */
+.formTable th {
+  text-align: left;
+  padding: 16px 14px;   /* increased from 10px → 16px */
+  background: #f5f6f9;
+  font-weight: 600;
+  color: #1C1C1C; 
+  width: 35%;
+  border: 1px solid #ddd;
+  font-size: 15px;      /* match data column */
+}
+
+
+/* Zebra striping effect */
+.formTable tr:nth-child(even) td {
+  background: #f9f9f9;; /* light gray */
+}
+
+.formTable tr:nth-child(odd) td {
+  background: #fff; /* white */
+}
+
+/* Back button */
+.backBtn {
+  padding: 8px 16px;
+  background:  #9370DB;
+
+  color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.backBtn:hover {
+  background: #7B5FCB;
+}

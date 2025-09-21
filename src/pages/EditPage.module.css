@@ -1,0 +1,405 @@
+/* ===========================
+   General Layout
+=========================== */
+.leadsPage {
+  padding: 20px;
+  background: #f8fafc;
+  min-height: 100vh;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* ===========================
+   Top Header
+=========================== */
+.topHeader {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.addBtn {
+  background: #7b2ff7;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.addBtn:hover {
+  background: #6a24d6;
+}
+
+/* ===========================
+   Filters Section
+=========================== */
+.filtersRow {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.filterSelect {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+}
+
+.dateRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.dateRange {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.applyBtn,
+.clearBtn {
+  padding: 8px 14px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.applyBtn {
+  background: #7b2ff7;
+  color: white;
+}
+
+.applyBtn:hover {
+  background: #6a24d6;
+}
+
+.clearBtn {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.clearBtn:hover {
+  background: #d1d5db;
+}
+
+/* ===========================
+   Export & Search Row
+=========================== */
+.exportRow {
+  display: flex;
+  justify-content: space-between;
+  
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.exportButtons {
+  display: flex;
+  align-items: center;
+  
+  gap: 10px;
+}
+
+.exportButtons button,
+.exportButtons select {
+  padding: 6px 10px;
+  font-size: 13px;
+  border: 1px solid #d1d5db;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+   background:  #9370DB;
+}
+
+.exportButtons button:hover {
+  background: #7B5FCB;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.searchBox input {
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* ===========================
+   Table
+=========================== */
+.leadsTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.leadsTable th,
+.leadsTable td {
+  border: 1px solid #e5e7eb;
+  padding: 10px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.leadsTable th {
+  background: #f3f4f6;
+  font-weight: 600;
+  color: #374151;
+}
+
+.leadsTable tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.leadsTable tbody tr:hover {
+  background: #f0f7ff;
+}
+
+/* Status Tag Styling */
+.statusTag {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.statusBlue {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.statusRed {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.statusGreen {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.statusYellow {
+  background: #fef9c3;
+  color: #92400e;
+}
+
+.statusDarkred {
+  background: #fef2f2;
+  color: #7f1d1d;
+}
+
+.statusOrange {
+  background: #ffedd5;
+  color: #9a3412;
+}
+
+.statusDarkgreen {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.statusDefault {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+/* ===========================
+   Table Action Buttons
+=========================== */
+.viewBtn,
+.historyBtn,
+.saveBtn,
+.editBtn {
+  padding: 5px 10px;
+  font-size: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: 0.2s ease;
+}
+
+.viewBtn {
+  background: #7b2ff7;
+  color: white;
+}
+
+.viewBtn:hover {
+  background: #6a24d6;
+}
+
+.historyBtn {
+  background: #f59e0b;
+  color: white;
+}
+
+.historyBtn:hover {
+  background: #d97706;
+}
+
+.saveBtn {
+  background: #10b981;
+  color: white;
+}
+
+.saveBtn:hover {
+  background: #059669;
+}
+
+.editBtn {
+  background: #3b82f6;
+  color: white;
+}
+
+.editBtn:hover {
+  background: #2563eb;
+}
+
+/* ===========================
+   Pagination
+=========================== */
+.paginationFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.paginationControls {
+  display: flex;
+  gap: 5px;
+}
+
+.paginationControls button {
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.paginationControls button:hover {
+  background: #f3f4f6;
+}
+
+.paginationControls button.active {
+  background: #7b2ff7;
+  color: white;
+  border-color: #7b2ff7;
+}
+
+/* ===========================
+   Modal Styling
+=========================== */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modalContent {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 800px;
+  width: 90%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modalContent h2 {
+  margin-bottom: 15px;
+}
+
+.historyTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+
+.historyTable th,
+.historyTable td {
+  border: 1px solid #e5e7eb;
+  padding: 8px;
+  text-align: left;
+}
+
+.historyTable th {
+  background: #f3f4f6;
+}
+
+.modalContent button {
+  padding: 8px 14px;
+  background: #7b2ff7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modalContent button:hover {
+  background: #6a24d6;
+}
+
+/* ===========================
+   Add Leads Form
+=========================== */
+.formContainer {
+  background: white;
+  padding: 25px;
+  max-width: 400px;
+  margin: 50px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.formContainer select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  margin: 15px 0;
+  font-size: 14px;
+}
+
+.formContainer button {
+  background: #7b2ff7;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.formContainer button:hover {
+  background: #6a24d6;
+}

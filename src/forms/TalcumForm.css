@@ -1,0 +1,71 @@
+.form-page {
+  padding: 20px;
+}
+
+h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.talcum-form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.required {
+  color: red;
+  margin-left: 2px;
+}
+
+input,
+textarea {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: none;
+}
+
+.radio-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+.full-width {
+  grid-column: span 3;
+  text-align: left;
+}
+
+
+.submit-btn {
+  background-color: #f25c5c;
+  color: white;
+  border: none;
+  padding: 5px 12px;   /* छोटा केला */
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;     /* font पण थोडा लहान */
+}
+
+.submit-btn:hover {
+  background-color: #d94b4b;
+}

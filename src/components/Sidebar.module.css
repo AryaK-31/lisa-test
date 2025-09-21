@@ -1,0 +1,243 @@
+/* Sidebar.module.css */
+.sidebar {
+  /* width: 220px; */
+  width: 15vw;
+  background-color: #54269d;
+  color: #FFFFFF;
+  min-height: 100vh;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.menuList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.menuItem:hover {
+  background-color: #6c588a;
+  border-radius: 0;
+}
+
+.active {
+  background-color: #5A1EB4;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.icon {
+  font-size: 18px;
+  color: #FFFFFF;
+}
+
+/* Make the logo bar touch the top edge */
+.sidebar {
+
+  /* was 20px all around — remove top padding */
+}
+
+
+/* Full-bleed white bar that spans the left+right edges */
+.brand {
+  width: calc(100% + 40px);
+  margin: 20px -20px 50px;
+  /* pull to left & right edges, keep 30px gap below */
+  /* white strip behind logo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4vw;
+  /* increase height = bigger visual area */
+  border-radius: 0;
+  /* square edges to meet the sidebar edges */
+}
+
+/* Bigger logo, keep aspect ratio */
+.brandLogo {
+  /* max-height: 80px; */
+  /* increase size */
+  width: auto;
+  object-fit: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+}
+
+/* When <body> has .sidebar-collapsed, shrink the sidebar */
+:global(.sidebar-collapsed) .sidebar {
+  width: 64px;
+  /* collapsed width */
+  transition: width 0.2s ease;
+}
+
+/* Hide text labels, keep just icons */
+:global(.sidebar-collapsed) .menuLabel,
+:global(.sidebar-collapsed) .brandText {
+  display: none;
+}
+
+/* Center icons in collapsed state */
+:global(.sidebar-collapsed) .menuItem {
+  justify-content: center;
+}
+
+/* Optional: tighten brand area when collapsed */
+:global(.sidebar-collapsed) .brand {
+  height: 64px;
+  padding: 8px;
+}
+
+:global(.sidebar-collapsed) .brandLogo {
+  max-height: 40px;
+}
+
+
+.mobileHeader {
+  display: none;
+  
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  color: #7b2ff7;
+  cursor: pointer;
+  z-index: 1000000000;
+}
+
+.mobileClose {
+  display: none;
+}
+
+.hamburgerLogo{
+    width: 15vh;
+  }
+
+
+@media (max-width: 768px) {
+
+  .brand{
+    height: 30vw;
+  }
+
+  .mobileHeader {
+    display: flex;
+    width: 100%;
+    height: 10vh;
+    position: fixed;
+    z-index: 1500;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mobileHeader .hamburger{
+    margin-left: 1rem;
+  }
+
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    width: 100vw;
+    height: 100vh;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.6s ease;
+    z-index: 1600;
+    overflow-y: auto;
+  }
+
+  .mobileOpen {
+    transform: translateX(0);
+  }
+
+  .mobileClose {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background: transparent;
+  }
+
+  .btn-nav-close {
+    font-size: 20px;
+    color: #fff;
+    background: none;
+  }
+
+  .menuList {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menuItem {
+    display: flex;
+    align-items: center;
+    width: auto;
+    font-size: 18px;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  .menuItem:hover {
+    background-color: #5a1eb4;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1550;
+  }
+
+}
+
+/* Empty media queries for all major screens */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Small laptop */
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+  /* Medium laptop */
+}
+@media (min-width: 1281px) and (max-width: 1440px) {
+  /* Large laptop */
+}
+@media (min-width: 1441px) and (max-width: 1920px) {
+  /* Desktop */
+}
+@media (min-width: 1921px) and (max-width: 2560px) {
+  /* Ultra-wide */
+}
+@media (min-width: 2561px) {
+  /* 4K and above */
+}

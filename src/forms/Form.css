@@ -1,0 +1,75 @@
+/* Parent layout - sidebar नंतरचं content full जागा घ्यावं */
+.page-content {
+  flex: 1;
+  background: #f9fafb; /* हलका ग्रे background */
+  padding: 40px;
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: flex-start; /* top पासून सुरू */
+  min-height: 100vh;
+}
+
+/* Form wrapper */
+.form-wrapper {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 600px; /* मोठं पण स्क्रीनभर नाही */
+}
+
+/* Heading */
+.form-wrapper h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Input groups */
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #444;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #2563eb;
+}
+
+/* Submit button */
+.submit-btn {
+  background: #2563eb;
+  color: #fff;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #1d4ed8;
+}
