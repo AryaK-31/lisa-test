@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import styles from "./LeadsForm.module.css";
 import api from "../utils/api";
 
@@ -23,6 +25,10 @@ export default function TalcumForm() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handlePhoneChange = (value) => {
+    setFormData((prev) => ({ ...prev, phone: value }));
   };
 
   const handleSubmit = async (e) => {
@@ -103,12 +109,11 @@ export default function TalcumForm() {
           </div>
           <div className={styles.formGroup}>
             <label>Phone *</label>
-            <input
-              type="tel"
-              name="phone"
+            <PhoneInput
+              country={"us"}
               value={formData.phone}
-              placeholder="XXX-XXX-XXXX"
-              onChange={handleChange}
+              onChange={handlePhoneChange}
+              inputClass={styles.phoneInput}
               required
             />
           </div>

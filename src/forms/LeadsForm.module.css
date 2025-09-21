@@ -64,8 +64,19 @@
 }
 
 /* Phone Input Styling */
+/* Phone Input Styling */
 .phoneInput {
-  width: 100%;
+  width: 100% !important;
+  min-width: 0 !important;
+  padding: 10px !important;
+  border: 1px solid #ccc !important;
+  border-radius: 8px !important;
+  outline: none !important;
+  font-size: 0.95rem !important;
+  box-sizing: border-box !important;
+  height: 40px !important;
+  background: #fff !important;
+  transition: 0.3s ease;
 }
 
 /* Textarea */
@@ -140,24 +151,21 @@
   .formRow {
     flex-direction: column;
   }
-
   .formGroup {
     width: 100%;
   }
-
   .submitBtn {
     width: 100%;
   }
-
   .formPage {
     padding-bottom: 56px;
   }
-
   .buttonWrapper {
     margin-bottom: 32px;
   }
 
   .formPage h2 {
-    font-size: 1.5rem;
-  }
+  font-size: 1.5rem;
+
+}
 }
