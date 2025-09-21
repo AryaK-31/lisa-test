@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "./Dashboard.module.css";
+import styles from "./pracDashboard.module.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {

@@ -199,7 +199,7 @@ export default function AdminLeads() {
               <div>
                 <p>Lawsuit Type</p>
               </div>
-              <div>
+              <div className={styles.filtersRowSelects}>
                 <select value={selectedLawsuit} onChange={e => setSelectedLawsuit(e.target.value)} className={styles.filterSelect}>
                   <option value="">Select Lawsuit</option>
                   {lawsuits.map(ls => <option key={ls.id} value={ls.lawsuitName}>{ls.lawsuitName}</option>)}
