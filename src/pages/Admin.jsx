@@ -29,41 +29,129 @@ const Checkmark = () => (
 );
 
 const STATUS_CONFIG = {
-  TOTAL: { label: "Total", color: "#D0F0F7" },
-  PENDING: { label: "PENDING", color: "#FFF9C4" },
-  REJECTED: { label: "REJECTED", color: "#F8BBD0" },
-  FELONY: { label: "FELONY", color: "#FFCDD2" },
-  BILLABLE: { label: "BILLABLE", color: "#DCEDC8" },
-  PAID: { label: "PAID", color: "#B2EBF2" },
-  DUPLICATE: { label: "DUPLICATE", color: "#D1C4E9" },
-  VERIFIED: { label: "VERIFIED", color: "#BBDEFB" },
-  SENT_TO_CLIENT: { label: "SENT TO CLIENT", color: "#B3E5FC" },
-  BACKGROUND_CHECK: { label: "Background Check", color: "#E1BEE7" },
-  SIGNED_UNDER_QC: { label: "Signed - Under QC", color: "#FFE0B2" },
-  NOT_RESPONDING_TO_CLIENT: { label: "Not Responding to Client", color: "#FFECB3" },
-  REJECTED_BY_CLIENT: { label: "Rejected By Client", color: "#FFCDD2" },
-  DEAD_LEAD: { label: "Dead Lead", color: "#B2DFDB" },
-  WORKING: { label: "Working", color: "#FFF59D" },
-  CALL_BACK: { label: "Call Back", color: "#C8E6C9" },
-  ATTEMPT_1_VM: { label: "Attempt -1 VM", color: "#FFF9C4" },
-  ATTEMPT_2_VM: { label: "Attempt -2 VM", color: "#FFFDE7" },
-  ATTEMPT_3_VM: { label: "Attempt -3 VM", color: "#FFF8E1" },
-  ATTEMPT_4_VM: { label: "Attempt -4 VM", color: "#FFECB3" },
-  ATTEMPT_5_VM: { label: "Attempt -5 VM", color: "#FFE082" },
-  CALL_BACK_REQUEST: { label: "Call Back Request", color: "#FFD54F" },
-  WAITING_ON_ID: { label: "Waiting on ID", color: "#FFF176" },
-  SENT_TO_OTHER_BUYER: { label: "Sent to other buyer", color: "#DCEDC8" },
-  REACHED_DAILY_CAP: { label: "Reached Daily Cap", color: "#BBDEFB" },
-  ID_VERIFICATION_FAILED: { label: "ID Verification Failed", color: "#FFE082" },
-  BACK_TO_SOURCE_NO_ANSWER: { label: "Back to Source - No Answer", color: "#FFCDD2" },
-  READY_TF: { label: "Ready TF", color: "#FFF9C4" },
-  CAMPAIGN_PAUSED: { label: "Campaign Paused", color: "#C5E1A5" },
-  CHARGEBACK: { label: "Chargeback", color: "#E1BEE7" },
-  DUPLICATE_WITH_CLIENT: { label: "Duplicate With Client", color: "#F3E5F5" },
-  NOT_ACCEPTABLE_ZIP: { label: "Not Acceptable Zip", color: "#FFCDD2" },
-  TPCA_LINK_MISSING: { label: "TPCA link Missing", color: "#EF9A9A" },
-  SUB_UNSUCCESSFUL_CPQ: { label: "Sub Unsuccessful CPQ", color: "#DCEDC8" },
-  SUB_UNSUCCESSFUL_LL: { label: "Sub Unsuccessful LL", color: "#E1BEE7" },
+  TOTAL: { label: "Total", color: "#D0F0F7", bgColor: "#7EC8D7" },
+  PENDING: { label: "PENDING", color: "#FFF9C4", bgColor: "#FBC02D" },
+  REJECTED: { label: "REJECTED", color: "#F8BBD0", bgColor: "#C2185B" },
+  FELONY: { label: "FELONY", color: "#FFCDD2", bgColor: "#D32F2F" },
+  BILLABLE: { label: "BILLABLE", color: "#DCEDC8", bgColor: "#689F38" },
+  PAID: { label: "PAID", color: "#B2EBF2", bgColor: "#00838F" },
+  DUPLICATE: { label: "DUPLICATE", color: "#D1C4E9", bgColor: "#512DA8" },
+  VERIFIED: { label: "VERIFIED", color: "#BBDEFB", bgColor: "#1976D2" },
+  SENT_TO_CLIENT: {
+    label: "SENT TO CLIENT",
+    color: "#B3E5FC",
+    bgColor: "#0288D1",
+  },
+  BACKGROUND_CHECK: {
+    label: "Background Check",
+    color: "#E1BEE7",
+    bgColor: "#8E24AA",
+  },
+  SIGNED_UNDER_QC: {
+    label: "Signed - Under QC",
+    color: "#FFE0B2",
+    bgColor: "#F57C00",
+  },
+  NOT_RESPONDING_TO_CLIENT: {
+    label: "Not Responding to Client",
+    color: "#FFECB3",
+    bgColor: "#FFA000",
+  },
+  REJECTED_BY_CLIENT: {
+    label: "Rejected By Client",
+    color: "#FFCDD2",
+    bgColor: "#D32F2F",
+  },
+  DEAD_LEAD: { label: "Dead Lead", color: "#B2DFDB", bgColor: "#00796B" },
+  WORKING: { label: "Working", color: "#FFF59D", bgColor: "#FBC02D" },
+  CALL_BACK: { label: "Call Back", color: "#C8E6C9", bgColor: "#388E3C" },
+  ATTEMPT_1_VM: {
+    label: "Attempt -1 VM",
+    color: "#FFF9C4",
+    bgColor: "#FBC02D",
+  },
+  ATTEMPT_2_VM: {
+    label: "Attempt -2 VM",
+    color: "#FFFDE7",
+    bgColor: "#FFB300",
+  },
+  ATTEMPT_3_VM: {
+    label: "Attempt -3 VM",
+    color: "#FFF8E1",
+    bgColor: "#FFB300",
+  },
+  ATTEMPT_4_VM: {
+    label: "Attempt -4 VM",
+    color: "#FFECB3",
+    bgColor: "#FFA000",
+  },
+  ATTEMPT_5_VM: {
+    label: "Attempt -5 VM",
+    color: "#FFE082",
+    bgColor: "#FFA000",
+  },
+  CALL_BACK_REQUEST: {
+    label: "Call Back Request",
+    color: "#FFD54F",
+    bgColor: "#FFA000",
+  },
+  WAITING_ON_ID: {
+    label: "Waiting on ID",
+    color: "#FFF176",
+    bgColor: "#FBC02D",
+  },
+  SENT_TO_OTHER_BUYER: {
+    label: "Sent to other buyer",
+    color: "#DCEDC8",
+    bgColor: "#689F38",
+  },
+  REACHED_DAILY_CAP: {
+    label: "Reached Daily Cap",
+    color: "#BBDEFB",
+    bgColor: "#1976D2",
+  },
+  ID_VERIFICATION_FAILED: {
+    label: "ID Verification Failed",
+    color: "#FFE082",
+    bgColor: "#FFA000",
+  },
+  BACK_TO_SOURCE_NO_ANSWER: {
+    label: "Back to Source - No Answer",
+    color: "#FFCDD2",
+    bgColor: "#D32F2F",
+  },
+  READY_TF: { label: "Ready TF", color: "#FFF9C4", bgColor: "#FBC02D" },
+  CAMPAIGN_PAUSED: {
+    label: "Campaign Paused",
+    color: "#C5E1A5",
+    bgColor: "#558B2F",
+  },
+  CHARGEBACK: { label: "Chargeback", color: "#E1BEE7", bgColor: "#8E24AA" },
+  DUPLICATE_WITH_CLIENT: {
+    label: "Duplicate With Client",
+    color: "#F3E5F5",
+    bgColor: "#7B1FA2",
+  },
+  NOT_ACCEPTABLE_ZIP: {
+    label: "Not Acceptable Zip",
+    color: "#FFCDD2",
+    bgColor: "#D32F2F",
+  },
+  TPCA_LINK_MISSING: {
+    label: "TPCA link Missing",
+    color: "#EF9A9A",
+    bgColor: "#B71C1C",
+  },
+  SUB_UNSUCCESSFUL_CPQ: {
+    label: "Sub Unsuccessful CPQ",
+    color: "#DCEDC8",
+    bgColor: "#689F38",
+  },
+  SUB_UNSUCCESSFUL_LL: {
+    label: "Sub Unsuccessful LL",
+    color: "#E1BEE7",
+    bgColor: "#8E24AA",
+  },
 };
 
 const Dashboard = () => {
@@ -229,7 +317,12 @@ const Dashboard = () => {
                 <div
                   key={status}
                   className={styles.card}
-                  style={{ backgroundColor: config.color, position: "relative" }}
+                  data-bgcolor={config.bgColor}
+                  style={{
+                    backgroundColor: config.color,
+                    position: "relative",
+                    "--card-bg-color": config.bgColor,
+                  }}
                 >
                   <div className={styles.checkmark}>
                     <Checkmark />

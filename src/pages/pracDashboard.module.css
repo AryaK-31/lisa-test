@@ -746,8 +746,10 @@ select.form-control {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-active) 100%);
-}
+  background: var(--card-bg-color, transparent);
+  }
+
+
 
 .card:hover {
   transform: translateY(-5px);
