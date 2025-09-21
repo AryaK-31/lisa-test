@@ -784,7 +784,7 @@ select.form-control {
 .label {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-text-secondary);
+  color: black;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   line-height: var(--line-height-normal);

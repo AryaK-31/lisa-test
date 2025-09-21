@@ -56,7 +56,7 @@ export default function Login() {
     <div className="screen">
       <form className="card" onSubmit={handleSubmit}>
        <img
-          src="/Lisa-Logo.png"
+          src="/../public/image.png"
           alt="Legal Intake Services of America"
           className="login-logo"
         />
