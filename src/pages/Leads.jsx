@@ -188,7 +188,11 @@ export default function AdminLeads() {
   return (
     <div className={styles.leadsPage}>
       <div className={styles.topHeader}>
-        {!showSelect && <button className={styles.addBtn} onClick={() => setShowSelect(true)}>+ Add Leads</button>}
+        {!showSelect && (
+          <button className={styles.addBtn} onClick={() => setShowSelect(true)}>
+            + Add Leads
+          </button>
+        )}
       </div>
 
       {!showSelect && (
@@ -199,14 +203,30 @@ export default function AdminLeads() {
               <div>
                 <p>Lawsuit Type</p>
               </div>
-              <div>
-                <select value={selectedLawsuit} onChange={e => setSelectedLawsuit(e.target.value)} className={styles.filterSelect}>
+              <div className={styles.filterLawsuit}>
+                <select
+                  value={selectedLawsuit}
+                  onChange={(e) => setSelectedLawsuit(e.target.value)}
+                  className={styles.filterSelect}
+                >
                   <option value="">Select Lawsuit</option>
-                  {lawsuits.map(ls => <option key={ls.id} value={ls.lawsuitName}>{ls.lawsuitName}</option>)}
+                  {lawsuits.map((ls) => (
+                    <option key={ls.id} value={ls.lawsuitName}>
+                      {ls.lawsuitName}
+                    </option>
+                  ))}
                 </select>
-                <select value={selectedStatus} onChange={e => setSelectedStatus(e.target.value)} className={styles.filterSelect}>
+                <select
+                  value={selectedStatus}
+                  onChange={(e) => setSelectedStatus(e.target.value)}
+                  className={styles.filterSelect}
+                >
                   <option value="">Select Status</option>
-                  {statuses.map(st => <option key={st.id} value={st.statusName}>{st.statusName}</option>)}
+                  {statuses.map((st) => (
+                    <option key={st.id} value={st.statusName}>
+                      {st.statusName}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -215,13 +235,33 @@ export default function AdminLeads() {
             <div className={styles.dateRow}>
               <p>Date and Apply</p>
               <div className={styles.dateRowSelect}>
-                <input type="date" value={fromDate} onChange={e => setFromDate(e.target.value)} className={styles.dateRange} />
+                <input
+                  type="date"
+                  value={fromDate}
+                  onChange={(e) => setFromDate(e.target.value)}
+                  className={styles.dateRange}
+                />
                 <span> to </span>
-                <input type="date" value={toDate} onChange={e => setToDate(e.target.value)} className={styles.dateRange} />
+                <input
+                  type="date"
+                  value={toDate}
+                  onChange={(e) => setToDate(e.target.value)}
+                  className={styles.dateRange}
+                />
               </div>
               <div className={styles.dateRowBtn}>
-                <button className={styles.applyBtn} onClick={handleApplyFilters}>Apply</button>
-                <button className={styles.clearBtn} onClick={handleClearFilters}>Clear</button>
+                <button
+                  className={styles.applyBtn}
+                  onClick={handleApplyFilters}
+                >
+                  Apply
+                </button>
+                <button
+                  className={styles.clearBtn}
+                  onClick={handleClearFilters}
+                >
+                  Clear
+                </button>
               </div>
             </div>
           </div>
@@ -229,7 +269,13 @@ export default function AdminLeads() {
           {/* Export + Search */}
           <div className={styles.exportRow}>
             <div className={styles.exportButtons}>
-              <select value={entriesPerPage} onChange={e => { setEntriesPerPage(Number(e.target.value)); setCurrentPage(1); }}>
+              <select
+                value={entriesPerPage}
+                onChange={(e) => {
+                  setEntriesPerPage(Number(e.target.value));
+                  setCurrentPage(1);
+                }}
+              >
                 <option value={10}>10</option>
                 <option value={25}>25</option>
                 <option value={50}>50</option>
@@ -245,86 +291,159 @@ export default function AdminLeads() {
             </div>
             <div className={styles.searchBox}>
               <label>Search: </label>
-              <input type="text" value={searchQuery} onChange={e => setSearchQuery(e.target.value)} />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
             </div>
           </div>
 
           {/* Table */}
-          {loading ? <p>Loading leads...</p> : (
+          {loading ? (
+            <p>Loading leads...</p>
+          ) : (
             <>
-              <table className={styles.leadsTable}>
-                <thead>
-                  <tr>
-                    <th><input type="checkbox" checked={allSelected} onChange={e => e.target.checked ? handleSelectAll() : handleDeselectAll()} /></th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Phone</th>
-                    <th>DOB</th>
-                    <th>Email</th>
-                    <th>Lawsuit</th>
-                    <th>Status</th>
-                    <th>Created By</th>
-                    <th>Created At</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {currentLeads.map(lead => (
-                    <tr key={lead.leadId}>
-                      <td><input type="checkbox" checked={selected.includes(lead.leadId)} onChange={() => handleCheckboxChange(lead.leadId)} /></td>
-                      <td>{lead.firstName}</td>
-                      <td>{lead.lastName}</td>
-                      <td>{lead.phone}</td>
-                      <td>{lead.dob}</td>
-                      <td>{lead.email}</td>
-                      <td>{lead.lawsuitName}</td>
-                      <td><span className={`${styles.statusTag} ${getStatusClass(lead.statusName)}`}>{lead.statusName}</span></td>
-                      <td>{lead.nameCreatedBy}</td>
-                      <td>{new Date(lead.createdAt).toLocaleString()}</td>
-                      <td><button
-                        onClick={() => navigate(`/leads/view/${lead.leadId}`, { state: { record: lead } })}
-                        style={{
-                          padding: '8px 16px',
-                          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                          color: '#fff',
-                          border: 'none',
-                          borderRadius: '8px',
-                          fontSize: '14px',
-                          fontWeight: 600,
-                          cursor: 'pointer',
-                          boxShadow: '0 4px 12px rgba(102, 126, 234, 0.4)',
-                          transition: 'all 0.3s ease',
-                          textTransform: 'uppercase',
-                          letterSpacing: '0.5px',
-                          display: 'inline-block',
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.transform = 'translateY(-2px)';
-                          e.currentTarget.style.boxShadow = '0 6px 20px rgba(102, 126, 234, 0.6)';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.transform = 'translateY(0)';
-                          e.currentTarget.style.boxShadow = '0 4px 12px rgba(102, 126, 234, 0.4)';
-                        }}
-                      >
-                        View
-                      </button></td>
+              <div className={styles.tableResponsive}>
+                <table className={styles.leadsTable}>
+                  <thead>
+                    <tr>
+                      <th>
+                        <input
+                          type="checkbox"
+                          checked={allSelected}
+                          onChange={(e) =>
+                            e.target.checked
+                              ? handleSelectAll()
+                              : handleDeselectAll()
+                          }
+                        />
+                      </th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Phone</th>
+                      <th>DOB</th>
+                      <th>Email</th>
+                      <th>Lawsuit</th>
+                      <th>Status</th>
+                      <th>Created By</th>
+                      <th>Created At</th>
+                      <th>Actions</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {currentLeads.map((lead) => (
+                      <tr key={lead.leadId}>
+                        <td>
+                          <input
+                            type="checkbox"
+                            checked={selected.includes(lead.leadId)}
+                            onChange={() => handleCheckboxChange(lead.leadId)}
+                          />
+                        </td>
+                        <td>{lead.firstName}</td>
+                        <td>{lead.lastName}</td>
+                        <td>{lead.phone}</td>
+                        <td>{lead.dob}</td>
+                        <td>{lead.email}</td>
+                        <td>{lead.lawsuitName}</td>
+                        <td>
+                          <span
+                            className={`${styles.statusTag} ${getStatusClass(
+                              lead.statusName
+                            )}`}
+                          >
+                            {lead.statusName}
+                          </span>
+                        </td>
+                        <td>{lead.nameCreatedBy}</td>
+                        <td>{new Date(lead.createdAt).toLocaleString()}</td>
+                        <td>
+                          <button
+                            onClick={() =>
+                              navigate(`/leads/view/${lead.leadId}`, {
+                                state: { record: lead },
+                              })
+                            }
+                            style={{
+                              padding: "8px 16px",
+                              background:
+                                "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                              color: "#fff",
+                              border: "none",
+                              borderRadius: "8px",
+                              fontSize: "14px",
+                              fontWeight: 600,
+                              cursor: "pointer",
+                              boxShadow: "0 4px 12px rgba(102, 126, 234, 0.4)",
+                              transition: "all 0.3s ease",
+                              textTransform: "uppercase",
+                              letterSpacing: "0.5px",
+                              display: "inline-block",
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.transform =
+                                "translateY(-2px)";
+                              e.currentTarget.style.boxShadow =
+                                "0 6px 20px rgba(102, 126, 234, 0.6)";
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.transform = "translateY(0)";
+                              e.currentTarget.style.boxShadow =
+                                "0 4px 12px rgba(102, 126, 234, 0.4)";
+                            }}
+                          >
+                            View
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
 
               {/* Pagination */}
               <div className={styles.paginationFooter}>
-                <span>Showing {startIndex + 1} to {endIndex} of {totalEntries} entries</span>
+                <span>
+                  Showing {startIndex + 1} to {endIndex} of {totalEntries}{" "}
+                  entries
+                </span>
                 <div className={styles.paginationControls}>
-                  <button onClick={() => goToPage(1)} disabled={currentPage === 1}>{'<<'}</button>
-                  <button onClick={() => goToPage(currentPage - 1)} disabled={currentPage === 1}>{'<'}</button>
-                  {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
-                    <button key={page} className={currentPage === page ? styles.active : ""} onClick={() => goToPage(page)}>{page}</button>
-                  ))}
-                  <button onClick={() => goToPage(currentPage + 1)} disabled={currentPage === totalPages}>{'>'}</button>
-                  <button onClick={() => goToPage(totalPages)} disabled={currentPage === totalPages}>{'>>'}</button>
+                  <button
+                    onClick={() => goToPage(1)}
+                    disabled={currentPage === 1}
+                  >
+                    {"<<"}
+                  </button>
+                  <button
+                    onClick={() => goToPage(currentPage - 1)}
+                    disabled={currentPage === 1}
+                  >
+                    {"<"}
+                  </button>
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                    (page) => (
+                      <button
+                        key={page}
+                        className={currentPage === page ? styles.active : ""}
+                        onClick={() => goToPage(page)}
+                      >
+                        {page}
+                      </button>
+                    )
+                  )}
+                  <button
+                    onClick={() => goToPage(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                  >
+                    {">"}
+                  </button>
+                  <button
+                    onClick={() => goToPage(totalPages)}
+                    disabled={currentPage === totalPages}
+                  >
+                    {">>"}
+                  </button>
                 </div>
               </div>
             </>
@@ -336,13 +455,20 @@ export default function AdminLeads() {
       {showSelect && (
         <div className="form-container">
           <h2>Select Lead Type</h2>
-          <select value={leadType} onChange={(e) => setLeadType(e.target.value)}>
+          <select
+            value={leadType}
+            onChange={(e) => setLeadType(e.target.value)}
+          >
             <option value="">Please select application type</option>
             {lawsuits.map((ls) => (
-              <option key={ls.id} value={ls.lawsuitName}>{ls.lawsuitName}</option>
+              <option key={ls.id} value={ls.lawsuitName}>
+                {ls.lawsuitName}
+              </option>
             ))}
           </select>
-          <button onClick={handleNext} disabled={!leadType}>Next →</button>
+          <button onClick={handleNext} disabled={!leadType}>
+            Next →
+          </button>
         </div>
       )}
     </div>
