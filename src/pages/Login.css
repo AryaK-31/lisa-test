@@ -1,31 +1,60 @@
 /* स्क्रीन full page घेईल */
 .screen {
+  background: linear-gradient(135deg, #2e0252, #9370DB);
   display: flex;
   justify-content: center;   /* horizontally center */
   align-items: center;       /* vertically center */
   min-height: 100vh;         /* full viewport height */
   width: 100%;
-  background: #f5f6fa;
   margin: 0;
   padding: 16px;             /* spacing for small screens */
   box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
 }
 
-/* Card box */
+.screen::before,
+.screen::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  filter: blur(150px);
+  opacity: 0.6;
+  z-index: 0;
+}
+.screen::before {
+  background: #ff00cc;
+  top: -100px;
+  left: -100px;
+}
+.screen::after {
+  background: #00ffe0;
+  bottom: -100px;
+  right: -100px;
+}
+
 .card {
-  background: #fff;
+  position: relative;
+  z-index: 1;
+  background: rgba(245, 244, 246, 0.646); 
   padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.25);
   width: 100%;
   max-width: 380px;
   text-align: center;
   box-sizing: border-box;
+  backdrop-filter: blur(18px) saturate(60%); 
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.25); 
 }
 
 .card h2 {
   margin-bottom: 1.5rem;
-  color: #333;
+  color: #fff;
+  text-shadow: 0px 1px 2px rgba(0,0,0,0.2);
 }
 
 /* Input */
@@ -33,63 +62,58 @@
   width: 100%;
   padding: 12px 15px;
   margin-bottom: 1rem;
-  border: 1px solid #ddd;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
   font-size: 14px;
   outline: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(255, 255, 255, 0.8);
+  color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   box-sizing: border-box;
+}
+
+.card input::placeholder {
+  color: rgba(0, 0, 0, 0.568);
 }
 
 .card input:focus {
   border-color: #6c63ff;
-  box-shadow: 0px 0px 4px rgba(108, 99, 255, 0.6);
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 0px 6px rgba(108, 99, 255, 0.8);
 }
 
 /* Button */
 .card button {
   width: 100%;
   padding: 12px;
-  background: #9370DB;
+  background: linear-gradient(135deg, #7B5FCB, #9370DB);
   color: white;
   border: none;
   border-radius: 8px;
   font-size: 15px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: transform 0.2s ease, background 0.3s ease;
 }
 
 .card button:hover {
-  background: #7B5FCB;
+  transform: translateY(-2px) scale(1.02);
+  background: linear-gradient(135deg, #6c4ab6, #7B5FCB);
 }
 
 .card button:disabled {
-  background: #aaa;
+  background: rgba(170,170,170,0.5);
   cursor: not-allowed;
 }
 
 /* Error message */
 .error {
-  background: #ffe0e0;
-  color: #d32f2f;
+  background: rgba(255, 224, 224, 0.5);
+  color: #ff6b6b;
   padding: 10px;
   border-radius: 6px;
   margin-bottom: 1rem;
   font-size: 14px;
-}
-
-/* Logo on the login card */
-.card .login-logo {
-  display: block;
-  margin: 0 auto 16px;   /* center + space below */
-  max-width: 240px;      /* cap size */
-  width: 80%;            /* responsive */
-  height: auto;
-
-  /* rotating reveal animation */
-  opacity: 0;
-  transform: translateY(-20px) scale(0.95) rotate(-10deg);
-  animation: logoReveal 1s ease-out forwards;
+  backdrop-filter: blur(10px);
 }
 
 /* Logo on the login card */
@@ -113,11 +137,11 @@
   }
   60% {
     opacity: 1;
-    transform: translateY(10px) scale(1.1) rotate(8deg); /* overshoot */
+    transform: translateY(10px) scale(1.1) rotate(8deg);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1) rotate(0deg); /* settle */
+    transform: translateY(0) scale(1) rotate(0deg);
   }
 }
 

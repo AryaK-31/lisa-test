@@ -42,8 +42,8 @@ export default function AdminLeads() {
         const response = await api.get("/leads");
         const array =
           Array.isArray(response.data) ? response.data :
-          Array.isArray(response.data?.content) ? response.data.content :
-          [];
+            Array.isArray(response.data?.content) ? response.data.content :
+              [];
 
         const leadsWithEdit = array.map((l) => ({
           ...l,
@@ -317,56 +317,62 @@ export default function AdminLeads() {
 
   return (
     <div className={styles["leads-page"]}>
-      {/* Filters */}
-      <div className={styles["filters-row"]}>
-        <select
-          className={styles["filter-select"]}
-          value={selectedLawsuit}
-          onChange={(e) => setSelectedLawsuit(e.target.value)}
-        >
-          <option value="">Select Lawsuit</option>
-          {lawsuits.map((ls) => (
-            <option key={ls.id} value={ls.lawsuitName}>
-              {ls.lawsuitName}
-            </option>
-          ))}
-        </select>
+      <div className={styles.filterAndDate}>
+        {/* Filters */}
+        <div className={styles["filters-row"]}>
+          <select
+            className={styles["filter-select"]}
+            value={selectedLawsuit}
+            onChange={(e) => setSelectedLawsuit(e.target.value)}
+          >
+            <option value="">Select Lawsuit</option>
+            {lawsuits.map((ls) => (
+              <option key={ls.id} value={ls.lawsuitName}>
+                {ls.lawsuitName}
+              </option>
+            ))}
+          </select>
 
-        <select
-          className={styles["filter-select"]}
-          value={selectedStatus}
-          onChange={(e) => setSelectedStatus(e.target.value)}
-        >
-          <option value="">Select Final Status</option>
-          {statuses.map((st) => (
-            <option key={st.id} value={st.statusName}>
-              {st.statusName}
-            </option>
-          ))}
-        </select>
-      </div>
+          <select
+            className={styles["filter-select"]}
+            value={selectedStatus}
+            onChange={(e) => setSelectedStatus(e.target.value)}
+          >
+            <option value="">Select Final Status</option>
+            {statuses.map((st) => (
+              <option key={st.id} value={st.statusName}>
+                {st.statusName}
+              </option>
+            ))}
+          </select>
+        </div>
 
-      {/* Date Range */}
-      <div className={styles["date-row"]}>
-        <input
-          type="date"
-          className={styles["date-range"]}
-          value={fromDate}
-          onChange={(e) => setFromDate(e.target.value)}
-        />
-        <span> to </span>
-        <input
-          type="date"
-          className={styles["date-range"]}
-          value={toDate}
-          onChange={(e) => setToDate(e.target.value)}
-        />
-        <button className={styles["apply-btn"]} onClick={handleApplyFilters}>
-          Apply
-        </button>
-        <button className={styles["clear-btn"]} onClick={handleClearFilters}>
-          Clear
-        </button>
+        {/* Date Range */}
+        <div className={styles["date-row"]}>
+          <div className={styles.datePickWrapper}>
+            <input
+              type="date"
+              className={styles["date-range"]}
+              value={fromDate}
+              onChange={(e) => setFromDate(e.target.value)}
+            />
+            <span> to </span>
+            <input
+              type="date"
+              className={styles["date-range"]}
+              value={toDate}
+              onChange={(e) => setToDate(e.target.value)}
+            />
+          </div>
+          <div className={styles.btnWrapper}>
+            <button className={styles["apply-btn"]} onClick={handleApplyFilters}>
+              Apply
+            </button>
+            <button className={styles["clear-btn"]} onClick={handleClearFilters}>
+              Clear
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Export + Search */}
@@ -559,7 +565,7 @@ export default function AdminLeads() {
           </div>
         </>
       )}
-{/* History Modal */}
+      {/* History Modal */}
       {showHistory && (
         <div className={styles["modal-overlay"]}>
           <div className={styles["modal"]}>
@@ -579,21 +585,21 @@ export default function AdminLeads() {
                     <th>Notes</th>
                   </tr>
                 </thead>
-         <tbody>
-  {historyData.map((h, idx) => (
-    <tr key={idx}>
-      <td className={styles[h.fromStatus] || ""}>
-        {h.fromStatus}
-      </td>
-      <td className={styles[h.toStatus] || ""}>
-        {h.toStatus}
-      </td>
-      <td>{h.updatedBy}</td>
-      <td>{h.dateTime}</td>
-      <td>{h.notes}</td>
-    </tr>
-  ))}
-</tbody>
+                <tbody>
+                  {historyData.map((h, idx) => (
+                    <tr key={idx}>
+                      <td className={styles[h.fromStatus] || ""}>
+                        {h.fromStatus}
+                      </td>
+                      <td className={styles[h.toStatus] || ""}>
+                        {h.toStatus}
+                      </td>
+                      <td>{h.updatedBy}</td>
+                      <td>{h.dateTime}</td>
+                      <td>{h.notes}</td>
+                    </tr>
+                  ))}
+                </tbody>
               </table>
             )}
             <button
@@ -608,4 +614,3 @@ export default function AdminLeads() {
     </div>
   );
 }
-    

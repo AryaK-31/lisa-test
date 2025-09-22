@@ -1,43 +1,30 @@
-
+.userListWrapper {
+  height: 100vh;
+  width: 100%;
+}
 
 .container {
-  max-width: 900px;
+  width: 65vw;
   margin: 2rem auto;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   padding: 0 1rem;
 }
 
-@media (max-width: 768px) {
-  .container {
-    padding: 0 0.5rem;
-  }
-}
-
 .card {
-  background: #ffffff;
+  /* background: #ffffff; */
   padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12),
-    0 0 8px rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  /* border-radius: 8px; */
+  /* box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), */
+    /* 0 0 8px rgba(255, 255, 255, 0.8); */
+  border: 1.5px solid #e0e7ef;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-@media (max-width: 768px) {
-  .card {
-    padding: 1.2rem 0.5rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-  }
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18), 
-              0 0 12px rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18),
+    0 0 12px rgba(255, 255, 255, 0.9);
 }
-
-
 
 .title {
   font-size: 1.8rem;
@@ -47,31 +34,12 @@
   text-align: center;
 }
 
-@media (max-width: 768px) {
-  .title {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    letter-spacing: 0.5px;
-  }
-}
-
 .actions {
   display: flex;
-  align-items: center;
   gap: 1rem;
   margin-bottom: 1rem;
   flex-wrap: wrap;
-  justify-content: center;
 }
-
-@media (max-width: 768px) {
-  .actions {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.8rem;
-  }
-}
-
 
 .createUserBtn,
 .editBtn {
@@ -84,18 +52,7 @@
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.2s ease;
-}
-
-@media (max-width: 768px) {
-  .createUserBtn,
-  .editBtn {
-    width: 100%;
-    font-size: 1.05rem;
-    padding: 12px 0;
-    border-radius: 8px;
-    box-shadow: 0 1px 4px rgba(37,99,235,0.08);
-    margin-bottom: 2px;
-  }
+  box-shadow: 0 1px 4px rgba(37, 99, 235, 0.07);
 }
 
 .createUserBtn:hover,
@@ -103,7 +60,8 @@
   background-color: #1d4ed8;
 }
 
-.filterSelect {
+.filterSelect,
+.statusSelect {
   padding: 6px 12px;
   border-radius: 6px;
   border: 1px solid #d1d5db;
@@ -113,27 +71,15 @@
   outline: none;
 }
 
-
 .searchInput {
   padding: 6px 12px;
   border-radius: 6px;
   border: 1px solid #d1d5db;
   font-size: 0.9rem;
-  flex: 1;
+  
   min-width: 200px;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-@media (max-width: 768px) {
-  .searchInput {
-    min-width: 0;
-    width: 100%;
-    font-size: 1.05rem;
-    box-sizing: border-box;
-    border-radius: 8px;
-    margin-bottom: 2px;
-  }
 }
 
 .searchInput:focus {
@@ -141,53 +87,11 @@
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
-
 .table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.95rem;
   table-layout: auto;
-}
-
-@media (max-width: 768px) {
-  .table,
-  .table thead,
-  .table tbody,
-  .table th,
-  .table td,
-  .table tr {
-    display: block;
-    width: 100%;
-  }
-  .table thead {
-    display: none;
-  }
-  .table tr {
-    width: auto;
-    margin-bottom: 1.2rem;
-    background: #f8fafc;
-    border-radius: 10px;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.08);
-    padding: 0.8rem 0.5rem;
-    border: 1px solid #e5e7eb;
-  }
-  .table td {
-    border: none;
-    padding: 10px 12px;
-    position: relative;
-    text-align: left;
-    font-size: 1.05rem;
-    background: none;
-  }
-  .table td:before {
-    content: attr(data-label);
-    font-weight: 600;
-    color: #2563eb;
-    display: block;
-    margin-bottom: 2px;
-    font-size: 0.97rem;
-    letter-spacing: 0.2px;
-  }
 }
 
 .table th,
@@ -201,35 +105,11 @@
   background-color: #f9fafb;
   font-weight: 600;
   color: #374151;
+  letter-spacing: 0.2px;
 }
 
 .table tr:hover {
   background-color: #f3f4f6;
-}
-
-@media (max-width: 768px) {
-  .table tr:hover {
-    background-color: #f8fafc;
-  }
-}
-
-
-.statusSelect {
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: 1px solid #d1d5db;
-  background: #fff;
-  font-size: 0.9rem;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .statusSelect {
-    width: 100%;
-    font-size: 1.05rem;
-    border-radius: 8px;
-    margin-bottom: 2px;
-  }
 }
 
 .noData {
@@ -239,24 +119,9 @@
   font-style: italic;
 }
 
-@media (max-width: 768px) {
-  .noData {
-    font-size: 1.05rem;
-    padding: 0.7rem;
-  }
-}
-
 .filterDropdown {
   position: relative;
   display: inline-block;
-}
-
-@media (max-width: 768px) {
-  .filterDropdown {
-    width: 100%;
-    display: block;
-    margin-bottom: 0.5rem;
-  }
 }
 
 .filterButton {
@@ -270,6 +135,7 @@
   box-sizing: border-box;
   transition: background 0.2s;
 }
+
 .filterButton:hover {
   background: #e0e7ff;
 }
@@ -288,7 +154,125 @@
   z-index: 100;
 }
 
+.checkboxItem {
+  margin: 6px 0;
+}
+
+.checkboxItem label {
+  display: block;
+  cursor: pointer;
+}
+
+/* ================= MOBILE STYLES ================= */
 @media (max-width: 768px) {
+  .container {
+    width: 90vw;
+    height: 70%;
+    padding: 0 0.5rem;
+  }
+
+  .card {
+    padding: 1.2rem 0.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+
+  .createUserBtn,
+  .editBtn {
+    width: 100%;
+    font-size: 1.05rem;
+    padding: 12px 0;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(37, 99, 235, 0.08);
+    margin-bottom: 2px;
+  }
+
+  .searchInput {
+    min-width: 0;
+    width: 100%;
+    font-size: 1.05rem;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-bottom: 2px;
+  }
+
+  .table,
+  .table thead,
+  .table tbody,
+  .table th,
+  .table td,
+  .table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .table thead {
+    display: none;
+  }
+
+  .table tr {
+    width: auto;
+    margin-bottom: 1.2rem;
+    background: #f8fafc;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+    padding: 0.8rem 0.5rem;
+    border: 1px solid #e5e7eb;
+  }
+
+  .table td {
+    border: none;
+    padding: 10px 12px;
+    position: relative;
+    text-align: left;
+    font-size: 1.05rem;
+    background: none;
+  }
+
+  .table td:before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #2563eb;
+    display: block;
+    margin-bottom: 2px;
+    font-size: 0.97rem;
+    letter-spacing: 0.2px;
+  }
+
+  .table tr:hover {
+    background-color: #f8fafc;
+  }
+
+  .statusSelect {
+    width: 100%;
+    font-size: 1.05rem;
+    border-radius: 8px;
+    margin-bottom: 2px;
+  }
+
+  .noData {
+    font-size: 1.05rem;
+    padding: 0.7rem;
+  }
+
+  .filterDropdown {
+    width: 100%;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
   .dropdownMenu {
     min-width: 100%;
     left: 0;
@@ -297,39 +281,15 @@
     border-radius: 10px;
     font-size: 1.05rem;
   }
-}
 
-
-.checkboxItem {
-  margin: 6px 0; /* spacing between checkboxes */
-}
-
-.checkboxItem label {
-  display: block; /* forces one per line */
-  cursor: pointer;
-}
-
-/* Extra: Make checkboxes larger for touch */
-@media (max-width: 768px) {
   .checkboxItem input[type="checkbox"] {
     width: 1.2em;
     height: 1.2em;
     accent-color: #2563eb;
   }
+
   .checkboxItem label {
     font-size: 1.05rem;
     padding-left: 0.2em;
   }
-}
-
-/* General improvements for desktop */
-.card {
-  border: 1.5px solid #e0e7ef;
-}
-.table th {
-  letter-spacing: 0.2px;
-}
-.editBtn {
-  margin-left: 0.2em;
-  box-shadow: 0 1px 4px rgba(37,99,235,0.07);
 }

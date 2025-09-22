@@ -24,6 +24,8 @@ const dummyLeads = Array.from({ length: 50 }, (_, i) => ({
 const dummyLawsuits = [
   { id: 1, lawsuitName: "Case A" },
   { id: 2, lawsuitName: "Case B" },
+  { id: 2, lawsuitName: "Case C" },
+  { id: 2, lawsuitName: "Case D" },
 ];
 
 const dummyStatuses = [
@@ -453,22 +455,25 @@ export default function AdminLeads() {
 
       {/* Modal for Add Leads */}
       {showSelect && (
-        <div className="form-container">
+        <div className={styles.selectLeadType}>
           <h2>Select Lead Type</h2>
-          <select
-            value={leadType}
-            onChange={(e) => setLeadType(e.target.value)}
-          >
-            <option value="">Please select application type</option>
-            {lawsuits.map((ls) => (
-              <option key={ls.id} value={ls.lawsuitName}>
-                {ls.lawsuitName}
-              </option>
-            ))}
-          </select>
-          <button onClick={handleNext} disabled={!leadType}>
-            Next →
-          </button>
+          <div className={styles.selectLeadTypeWrap}>
+            <select
+              value={leadType}
+              onChange={(e) => setLeadType(e.target.value)}
+              id="selectLead"
+            >
+              <option value="">Please select application type</option>
+              {lawsuits.map((ls) => (
+                <option key={ls.id} value={ls.lawsuitName}>
+                  {ls.lawsuitName}
+                </option>
+              ))}
+            </select>
+            <button onClick={handleNext} disabled={!leadType}>
+              Next →
+            </button>
+          </div>
         </div>
       )}
     </div>
