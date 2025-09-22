@@ -1,17 +1,45 @@
+@media (max-width: 768px) {
+  .formContainer {
+    max-width: 98vw;
+    padding: 16px;
+    margin: 24px auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  }
+  .title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .userForm {
+    gap: 12px;
+  }
+  .input, .select {
+    font-size: 0.97rem;
+    padding: 10px 10px;
+    border-radius: 8px;
+  }
+  .formActions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px 0;
+    border-radius: 8px;
+  }
+}
 /* Container */
 .formContainer {
   max-width: 400px;
-  margin: 48px auto;
-  margin-top: 100px;
+  margin: 48px auto 0 auto;
   padding: 32px;
   background: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 
-              0 0 8px rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.6);  
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 0 8px rgba(255,255,255,0.8);
+  border: 1px solid #e5e7eb;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  
 }
 
 
@@ -19,135 +47,14 @@
   font-size: 1.9rem;.dashboard {
   padding: 20px;
 }
-
-.welcome {
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
-.heading {
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr); 
-  gap: 15px;
-  padding-bottom: 10px;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  padding: 20px 10px;
-  color: black;
-  font-weight: bold;
-  text-align: center;
-  min-height: 100px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-  transition: transform 0.2s ease;
-  position: relative;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.value {
-  font-size: 24px;
-  font-weight: 600;
-  margin-left: 38px;
-  display: block;
-}
-
-.label {
-  display: block;
-  margin-left: 38px;
-  font-weight: 500;
-}
-
-.filterSection {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.applyBtn {
-  background: green;
-  color: white;
-  padding: 8px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.clearBtn {
-  background: red;
-  color: white;
-  padding: 8px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.chartSection {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
-}
-
-.checkmark {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: black;
-  border-radius: 4px;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.datePickerWrapper {
-  width: 100%;
-  flex: 1 1 100%;
-}
-
-.datePickerWrapper > div {
-  width: 100% !important;
-  box-sizing: border-box;
-}
-
-.datePickerWrapper .react-datepicker {
-  width: 100% !important;
-  display: block;
-}
-
-.customRangeCalendars {
-  margin-top: 10px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
+.title {
+  font-size: 1.9rem;
   font-weight: 600;
   color: #1f2937;
   text-align: center;
   margin-bottom: 24px;
   letter-spacing: 0.3px;
 }
-
-.userForm {
-  display: flex;
   flex-direction: column;
   gap: 18px;
 }

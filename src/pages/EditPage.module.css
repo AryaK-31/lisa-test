@@ -1,4 +1,135 @@
 /* ===========================
+   Edit User Page Styling
+=========================== */
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  padding: 2rem 0.5rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10), 0 0 8px rgba(123,47,247,0.04);
+  padding: 2.2rem 2.5rem 2rem 2.5rem;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  border: 1.5px solid #e0e7ef;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #7b2ff7;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.formGroup label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 2px;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 7px;
+  font-size: 1rem;
+  background: #f9fafb;
+  transition: border 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+.formGroup input:focus {
+  border-color: #7b2ff7;
+  box-shadow: 0 0 0 2px rgba(123,47,247,0.10);
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.saveBtn {
+  background: linear-gradient(90deg, #7b2ff7 60%, #f107a3 100%);
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  font-size: 1rem;
+  border-radius: 7px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(123,47,247,0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.saveBtn:hover {
+  background: linear-gradient(90deg, #6a24d6 60%, #c31ad9 100%);
+  box-shadow: 0 4px 16px rgba(123,47,247,0.13);
+}
+
+.cancelBtn {
+  background: #e5e7eb;
+  color: #374151;
+  border: none;
+  padding: 10px 22px;
+  font-size: 1rem;
+  border-radius: 7px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cancelBtn:hover {
+  background: #d1d5db;
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+    max-width: 98vw;
+    border-radius: 8px;
+  }
+  .title {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+  }
+  .formGroup input {
+    font-size: 0.98rem;
+    padding: 9px 8px;
+  }
+  .saveBtn, .cancelBtn {
+    font-size: 0.98rem;
+    padding: 9px 0;
+    width: 100%;
+    border-radius: 6px;
+  }
+  .buttonGroup {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+/* ===========================
    General Layout
 =========================== */
 .leadsPage {

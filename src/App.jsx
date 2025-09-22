@@ -45,7 +45,7 @@ export default function App() {
         }
       >
         {/* Common Routes (USER & ADMIN) */}
-        <Route path="admin" element={<Admin />} /> 
+        <Route path="admin" element={<Admin />} />
         <Route path="leads" element={<Leads />} />
         <Route path="leads/view/:id" element={<ViewRecord />} />
         <Route path="change-password" element={<PasswordResetFlow />} />
@@ -60,6 +60,10 @@ export default function App() {
         <Route path="leads/lds" element={<LDSForm />} />
         <Route path="leads/talcum" element={<TalcumForm />} />
 
+        <Route path="create-user" element={<CreateUser />} />
+        <Route path="user-list" element={<UserList />} />
+        <Route path="admin-leads" element={<AdminLeads />} />
+        <Route path="edituser/:id" element={<EditPage />} />
         {/* Admin-only Routes */}
         {role === "ADMIN" && (
           <>
