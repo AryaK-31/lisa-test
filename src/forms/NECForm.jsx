@@ -153,8 +153,8 @@ export default function NECForm() {
               country={"us"}
               value={formData.phone}
               onChange={handlePhoneChange}
+              containerClass={styles.phoneInput}
               inputClass={styles.phoneInput}
-              required
             />
           </div>
         </div>
@@ -253,7 +253,8 @@ export default function NECForm() {
         {/* Radio Group 1 */}
         <div className={`${styles.formGroup} ${styles.full}`}>
           <label>
-            Infant must have been given cow's milk formula or fortifier prior to diagnosis:
+            Infant must have been given cow's milk formula or fortifier prior to
+            diagnosis:
           </label>
           <div className={styles.radioInline}>
             <label>

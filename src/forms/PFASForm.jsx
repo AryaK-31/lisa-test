@@ -133,8 +133,8 @@ export default function PFASForm() {
               country={"us"}
               value={formData.phone}
               onChange={handlePhoneChange}
+              containerClass={styles.phoneInput}
               inputClass={styles.phoneInput}
-              required
             />
           </div>
         </div>
