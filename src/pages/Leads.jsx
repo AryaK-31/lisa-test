@@ -6,40 +6,29 @@ import * as XLSX from "xlsx";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 
-const dummyLeads = Array.from({ length: 50 }, (_, i) => ({
-  leadId: i + 1,
-  firstName: `John${i + 1}`,
-  lastName: `Doe${i + 1}`,
-  phone: `12345678${i + 1}`,
-  dob: `1990-01-${(i % 28) + 1}`,
-  email: `john${i + 1}@example.com`,
-  lawsuitName: i % 2 === 0 ? "Case A" : "Case B",
-  statusName: i % 3 === 0 ? "PENDING" : "BILLABLE",
-  nameCreatedBy: "Admin",
-  createdAt: new Date().toISOString(),
-  isEditing: false,
-  newStatus: i % 3 === 0 ? "PENDING" : "BILLABLE",
-}));
-
+// --- Dummy data code below is commented out. ---
+/*
+// Dummy data for leads
+const dummyLeads = [
+  // ...dummy data here...
+];
+// Dummy data for lawsuits
 const dummyLawsuits = [
-  { id: 1, lawsuitName: "Case A" },
-  { id: 2, lawsuitName: "Case B" },
-  { id: 2, lawsuitName: "Case C" },
-  { id: 2, lawsuitName: "Case D" },
+  // ...dummy data here...
 ];
-
+// Dummy data for statuses
 const dummyStatuses = [
-  { id: 1, statusName: "PENDING" },
-  { id: 2, statusName: "BILLABLE" },
+  // ...dummy data here...
 ];
+*/
 
 export default function AdminLeads() {
   const [showSelect, setShowSelect] = useState(false);
   const [leadType, setLeadType] = useState("");
   const [allLeads, setAllLeads] = useState([]);
   const [leads, setLeads] = useState([]);
-  const [lawsuits, setLawsuits] = useState(dummyLawsuits);
-  const [statuses, setStatuses] = useState(dummyStatuses);
+  const [lawsuits, setLawsuits] = useState([]); // API data
+  const [statuses, setStatuses] = useState([]); // API data
   const [loading, setLoading] = useState(true);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -58,13 +47,52 @@ export default function AdminLeads() {
 
   const navigate = useNavigate();
 
+  // Fetch leads from API
   useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setAllLeads(dummyLeads);
-      setLeads(dummyLeads);
-      setLoading(false);
-    }, 500);
+    const fetchLeads = async () => {
+      try {
+        setLoading(true);
+        const response = await api.get("/leads");
+        const leadsWithEdit = response.data.map((l) => ({
+          ...l,
+          isEditing: false,
+          newStatus: l.statusName,
+        }));
+        setAllLeads(leadsWithEdit);
+        setLeads(leadsWithEdit);
+      } catch (error) {
+        console.error("Error fetching leads:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchLeads();
+  }, []);
+
+  // Fetch lawsuits from API
+  useEffect(() => {
+    const fetchLawsuits = async () => {
+      try {
+        const response = await api.get("/admin/law-suits");
+        setLawsuits(response.data);
+      } catch (error) {
+        console.error("Error fetching lawsuits:", error);
+      }
+    };
+    fetchLawsuits();
+  }, []);
+
+  // Fetch statuses from API
+  useEffect(() => {
+    const fetchStatuses = async () => {
+      try {
+        const response = await api.get("/admin/status");
+        setStatuses(response.data);
+      } catch (error) {
+        console.error("Error fetching statuses:", error);
+      }
+    };
+    fetchStatuses();
   }, []);
 
   const getStatusClass = (status) => {

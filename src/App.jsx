@@ -39,9 +39,9 @@ export default function App() {
       <Route
         path="/"
         element={
-          // <PrivateRoute>
-          <Layout />
-          // </PrivateRoute>
+          <PrivateRoute>
+            <Layout />
+          </PrivateRoute>
         }
       >
         {/* Common Routes (USER & ADMIN) */}
@@ -53,6 +53,7 @@ export default function App() {
 
         {/* Forms (accessible to everyone) */}
         <Route path="leads/depo-provera" element={<DepoProveraForm />} />
+        <Route path="leads/depo_provera" element={<DepoProveraForm />} />
         <Route path="leads/roundup" element={<RoundupForm />} />
         <Route path="leads/pfas" element={<PFASForm />} />
         <Route path="leads/nec" element={<NECForm />} />
@@ -60,10 +61,6 @@ export default function App() {
         <Route path="leads/lds" element={<LDSForm />} />
         <Route path="leads/talcum" element={<TalcumForm />} />
 
-        <Route path="create-user" element={<CreateUser />} />
-        <Route path="user-list" element={<UserList />} />
-        <Route path="admin-leads" element={<AdminLeads />} />
-        <Route path="edituser/:id" element={<EditPage />} />
         {/* Admin-only Routes */}
         {role === "ADMIN" && (
           <>
